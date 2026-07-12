@@ -1,0 +1,27 @@
+{
+  "name": "ai-agent-pro",
+  "version": "1.0.0",
+  "description": "A powerful autonomous coding agent with browser control, image/audio generation, and permission-gated tools.",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "postinstall": "playwright install chromium || true"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.3",
+    "express": "^4.19.2",
+    "openai": "^4.56.0",
+    "playwright": "^1.45.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "@types/ws": "^8.5.10",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  }
+}
