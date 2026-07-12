@@ -1,0 +1,23 @@
+{
+  "name": "Aegis AI Agent",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Aegis Agent",
+      "onAutoForward": "openBrowser",
+      "visibility": "public"
+    }
+  },
+  "postCreateCommand": "npm install --omit=optional --no-audit --no-fund && npx tsc",
+  "postStartCommand": "node dist/server.js",
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  },
+  "remoteEnv": {
+    "PORT": "3000",
+    "GROQ_API_KEY": "${localEnv:GROQ_API_KEY}"
+  }
+}
