@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.git
+workspace/*
+generated/*
+!workspace/.gitkeep
+!generated/.gitkeep
+*.log
+aegis-preview-mockup.png
