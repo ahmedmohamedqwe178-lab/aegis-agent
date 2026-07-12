@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aegis AI Agent</title>
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🛡️</div>
+      <div>
+        <div class="title">Aegis <span class="tag">AI Agent</span></div>
+        <div class="subtitle" id="provider-info">initializing…</div>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="btn-reset" title="محادثة جديدة">🔄 جديدة</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <!-- الشريط الجانبي: شجرة الملفات -->
+    <aside class="sidebar">
+      <div class="panel-header">📁 مساحة العمل</div>
+      <div id="file-tree" class="file-tree">(فارغة)</div>
+    </aside>
+
+    <!-- المحرر وسط -->
+    <section class="editor-pane">
+      <div class="tabs" id="tabs"></div>
+      <div class="editor-container">
+        <pre id="editor" class="editor"><span class="placeholder">اختر ملفاً من الشريط الجانبي لعرضه…</span></pre>
+        <div id="preview" class="preview hidden"></div>
+      </div>
+    </section>
+
+    <!-- الشات -->
+    <section class="chat-pane">
+      <div class="panel-header">
+        💬 المحادثة
+        <span class="pill" id="status">جاهز</span>
+      </div>
+      <div id="messages" class="messages">
+        <div class="welcome">
+          <h2>👋 أهلاً! أنا Aegis</h2>
+          <p>وكيل برمجي مستقل يقدر يكتب كود، يشغّل أوامر، يتصفح الويب، يولّد صور وصوت.</p>
+          <div class="suggestions">
+            <button class="chip" data-prompt="اكتب لعبة snake بـ HTML و JavaScript في ملف واحد وشغّلها في المتصفح">🎮 لعبة Snake</button>
+            <button class="chip" data-prompt="أنشئ REST API بسيط بـ Node.js و Express فيه CRUD للـ users وشغّله واختبره">⚙️ REST API</button>
+            <button class="chip" data-prompt="افتح https://news.ycombinator.com واستخرج أول 10 عناوين">🌐 تصفح ويب</button>
+            <button class="chip" data-prompt="ولّد صورة لقطة فضائية تشرب قهوة في مقهى باريسي">🎨 صورة</button>
+          </div>
+        </div>
+      </div>
+      <form id="chat-form" class="composer">
+        <textarea id="chat-input" placeholder="اطلب أي حاجة… (Enter للإرسال، Shift+Enter لسطر جديد)" rows="2"></textarea>
+        <button id="chat-send" type="submit">إرسال ➤</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Modal للأذونات -->
+  <div id="perm-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>🔐 طلب إذن</h3>
+      <p id="perm-desc"></p>
+      <div class="perm-details">
+        <div><strong>الأداة:</strong> <code id="perm-tool"></code></div>
+        <div><strong>الفئة:</strong> <code id="perm-category"></code></div>
+        <pre id="perm-args"></pre>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="perm-session" checked />
+        السماح بكل عمليات هذه الفئة لبقية الجلسة
+      </label>
+      <div class="modal-actions">
+        <button id="perm-deny" class="btn-danger">🚫 رفض</button>
+        <button id="perm-allow" class="btn-primary">✅ سماح</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js" type="module"></script>
+</body>
+</html>
