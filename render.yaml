@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: aegis-ai-agent
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PORT
+        value: 3000
+    healthCheckPath: /
+    autoDeploy: true
