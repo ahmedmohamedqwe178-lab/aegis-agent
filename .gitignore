@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+workspace/*
+generated/*
+!workspace/.gitkeep
+!generated/.gitkeep
+playwright-report
+test-results
